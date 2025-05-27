@@ -21,6 +21,17 @@ int func2(int arr[], int N)
 	return 0;
 }
 
+int func2_v2(int arr[], int N)
+{
+	int num[101] = {};
+
+	for (int i = 0; i < N; i++) {
+		if (num[100 - arr[i]] == 1) return 1;
+		num[arr[i]] = 1;
+	}
+	return 0;
+}
+
 int func3(int N)
 {
 	for (int i = 1; i * i <= N; i++) {
@@ -59,5 +70,10 @@ int main(void)
 	cout << func4(5) << "\n";
 	cout << func4(97615282) << "\n";
 	cout << func4(1024) << "\n";
+
+	cout << "-----func2_v2 test-----" << "\n";
+	cout << func2_v2(arr1, 3) << "\n";
+	cout << func2_v2(arr2, 2) << "\n";
+	cout << func2_v2(arr3, 4) << "\n";
 	return 0;
 }
